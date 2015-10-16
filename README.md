@@ -1,12 +1,13 @@
 # SharpQL
 
 SharpQL is an open source library written in C#.
-It's sole purpose is to help developers generate dynamic SQL scripts fast and safe.
+It's sole purpose is to help developers generate dynamic SQL scripts faster and safer.
 No more ugly string concatenation and SQL injection!
 
 Project Website: http://sharpql.com
 
-The best thing is that if you know SQL you already know how to use SharpQL
+The best thing is that if you know SQL you already know how to use SharpQL.
+
 
 
 ```csharp
@@ -42,7 +43,10 @@ public class PostTable : Table
 	public Column Text { get; private set; }
 	public Column PostDate { get; private set; }
 }
+````
 
+SharpQL's fluent API syntax tries to follow the exact SQL's grammar where possible.
+````csharp
 // than use it to generate sql scripts
 	var q = new XQuery();
 	var u = new UserTable();
