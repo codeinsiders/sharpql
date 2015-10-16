@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{415DA085-967C-4E76-96A0-39FDD316189A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeInsiders.SharpQL</RootNamespace>
+    <AssemblyName>CodeInsiders.SharpQL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SharpQL.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assignments\AddAssign.cs" />
+    <Compile Include="Assignments\Assignment.cs" />
+    <Compile Include="Assignments\BitwiseAndAssign.cs" />
+    <Compile Include="Assignments\BitwiseOrAssign.cs" />
+    <Compile Include="Assignments\BitwiseXorAssign.cs" />
+    <Compile Include="Assignments\DivideAssign.cs" />
+    <Compile Include="Assignments\ModuloAssign.cs" />
+    <Compile Include="Assignments\MultiplyAssign.cs" />
+    <Compile Include="Assignments\SubstractAssign.cs" />
+    <Compile Include="Clauses\FullOuterJoin.cs" />
+    <Compile Include="Clauses\OrderBy.cs" />
+    <Compile Include="Clauses\RightOuterJoin.cs" />
+    <Compile Include="Exceptions\ColumnNotFoundException.cs" />
+    <Compile Include="Exceptions\SharpQLNullValueAssignmentException.cs" />
+    <Compile Include="Clauses\OrderByDesc.cs" />
+    <Compile Include="Case\SearchedCaseCondition.cs" />
+    <Compile Include="Case\SimpleCaseCondition.cs" />
+    <Compile Include="Functions\AggregateFunctions\AggregateFunction.cs" />
+    <Compile Include="Functions\AggregateFunctions\AvgAggregateFunction.cs" />
+    <Compile Include="Functions\AggregateFunctions\Checksum_AggAggregateFunction.cs" />
+    <Compile Include="Functions\ScalarFunctions\BinaryChecksumFunction.cs" />
+    <Compile Include="Functions\Function.cs" />
+    <Compile Include="Functions\UserDefinedFunction.cs" />
+    <Compile Include="Helpers\StringBuilderExtensions.cs" />
+    <Compile Include="Parameters\InputParameter.cs" />
+    <Compile Include="Parameters\Parameter.cs" />
+    <Compile Include="Predicates\AndConditionalOperatorAndPredicate.cs" />
+    <Compile Include="Operators\ArithmeticExpressionOperator.cs" />
+    <Compile Include="Expressions\AsExpression.cs" />
+    <Compile Include="Helpers\AssignListBuilder.cs" />
+    <Compile Include="Helpers\Internal\Collection.cs" />
+    <Compile Include="Predicates\ConditionalOperator.cs" />
+    <Compile Include="Predicates\InPredicate.cs" />
+    <Compile Include="Predicates\InSingleExprSelectStatementPredicate.cs" />
+    <Compile Include="Predicates\NotInSingleExprSelectStatementPredicate.cs" />
+    <Compile Include="ScriptVisitors\TSqlVisitor.cs" />
+    <Compile Include="SingleExprSelectStatement.cs" />
+    <Compile Include="SingleExprSingleRowSelectStatement.cs" />
+    <Compile Include="StringAssignOption.cs" />
+    <Compile Include="TableSource.cs" />
+    <Compile Include="TSqlKeyword.cs" />
+    <Compile Include="Helpers\Internal\ParameterFormat.cs" />
+    <Compile Include="Predicates\BinaryPredicateOperator.cs" />
+    <Compile Include="Predicates\ExistsPredicate.cs" />
+    <Compile Include="Predicates\NotExistsPredicate.cs" />
+    <Compile Include="Predicates\UnaryPredicateOperator.cs" />
+    <Compile Include="SharpQLException.cs" />
+    <Compile Include="Expressions\SingleExpSingleRowSelectStatementExpression.cs" />
+    <Compile Include="ScriptVisitors\ScriptVisitor.cs" />
+    <Compile Include="XBatch.cs" />
+    <Compile Include="Predicates\BetweenPredicate.cs" />
+    <Compile Include="Operators\BinaryArithemeticOperator.cs" />
+    <Compile Include="Functions\CastFunction.cs" />
+    <Compile Include="Clauses\ClauseBase.cs" />
+    <Compile Include="DataType\IntDataType.cs" />
+    <Compile Include="Functions\DatePartType.cs" />
+    <Compile Include="Clauses\Clause.cs" />
+    <Compile Include="ClauseExtensions.cs" />
+    <Compile Include="Column.cs" />
+    <Compile Include="Expressions\ConstantExpression.cs" />
+    <Compile Include="Predicates\ContainsPredicate.cs" />
+    <Compile Include="Clauses\CrossApply.cs" />
+    <Compile Include="DataType\BigintDataType.cs" />
+    <Compile Include="DataType\BitDataType.cs" />
+    <Compile Include="DataType\DateDataType.cs" />
+    <Compile Include="DataType\DateTimeDataType.cs" />
+    <Compile Include="DataType\DateTimeOffset.cs" />
+    <Compile Include="DataType\NVarcharDataType.cs" />
+    <Compile Include="DataType\SqlDataType.cs" />
+    <Compile Include="DataType\VarbinaryDataType.cs" />
+    <Compile Include="Expressions\DefaultValueExpression.cs" />
+    <Compile Include="Clauses\Delete\DeleteClause.cs" />
+    <Compile Include="Clauses\Delete\DeleteFromTable.cs" />
+    <Compile Include="DeleteStatement.cs" />
+    <Compile Include="Clauses\Delete\DeleteTopFromTable.cs" />
+    <Compile Include="Clauses\Delete\DeleteTopPercentFromTable.cs" />
+    <Compile Include="Operators\DivideArithmeticExpressionOperator.cs" />
+    <Compile Include="Predicates\EndsWithPredicate.cs" />
+    <Compile Include="Predicates\EqualToPredicate.cs" />
+    <Compile Include="Expressions\Expression.cs" />
+    <Compile Include="Assignments\ExpressionAssign.cs" />
+    <Compile Include="ExpressionAssignValues.cs" />
+    <Compile Include="Expressions\ExpressionExtensions.cs" />
+    <Compile Include="Operators\ArithmeticOperator.cs" />
+    <Compile Include="Predicates\FalsePredicate.cs" />
+    <Compile Include="InsertValuesStart.cs" />
+    <Compile Include="Clauses\FromClause.cs" />
+    <Compile Include="Functions\SimpleFunction.cs" />
+    <Compile Include="Clauses\GroupByClause.cs" />
+    <Compile Include="Clauses\Having.cs" />
+    <Compile Include="Clauses\HavingSelect.cs" />
+    <Compile Include="Extensions\ExpressionArrayExtensions.cs" />
+    <Compile Include="Helpers\Internal\ExpressionFormatter.cs" />
+    <Compile Include="Clauses\InnerJoin.cs" />
+    <Compile Include="Predicates\InValuesPredicate.cs" />
+    <Compile Include="Clauses\Insert\InsertClause.cs" />
+    <Compile Include="Clauses\Insert\InsertDefaultValuesClause.cs" />
+    <Compile Include="Clauses\Insert\InsertIntoTable.cs" />
+    <Compile Include="Clauses\Insert\InsertIntoTableAdvanced.cs" />
+    <Compile Include="Clauses\Insert\InsertAdvancedClause.cs" />
+    <Compile Include="InsertStatement.cs" />
+    <Compile Include="Clauses\Insert\InsertTopIntoTable.cs" />
+    <Compile Include="Clauses\Insert\InsertTopPercentIntoTable.cs" />
+    <Compile Include="Clauses\Insert\InsertValues.cs" />
+    <Compile Include="Clauses\InsertWhereClause.cs" />
+    <Compile Include="Predicates\IsGreaterThanOrEqualToPredicate.cs" />
+    <Compile Include="Predicates\IsGreaterThanPredicate.cs" />
+    <Compile Include="Predicates\IsLessThanOrEqualToPredicate.cs" />
+    <Compile Include="Predicates\IsLessThanPredicate.cs" />
+    <Compile Include="Predicates\IsLikePredicate.cs" />
+    <Compile Include="Predicates\IsNotEqualToPredicate.cs" />
+    <Compile Include="Predicates\IsNotNullPredicate.cs" />
+    <Compile Include="Predicates\IsNullPredicate.cs" />
+    <Compile Include="SqlFragment.cs" />
+    <Compile Include="IStatement.cs" />
+    <Compile Include="Clauses\JoinClause.cs" />
+    <Compile Include="Clauses\LeftOuterJoin.cs" />
+    <Compile Include="Helpers\MetaType.cs" />
+    <Compile Include="Operators\MinusArithmeticExpressionOperator.cs" />
+    <Compile Include="Operators\ModuloArithmeticExpressionOperator.cs" />
+    <Compile Include="Operators\MultiplyArithmeticExpressionOperator.cs" />
+    <Compile Include="NextValues.cs" />
+    <Compile Include="Predicates\NotInValuesPredicate.cs" />
+    <Compile Include="Expressions\NullConstantExpression.cs" />
+    <Compile Include="Clauses\OrderByAsc.cs" />
+    <Compile Include="OrderByStatement.cs" />
+    <Compile Include="Predicates\OrConditionalOperator.cs" />
+    <Compile Include="ParameterFormatter.cs" />
+    <Compile Include="Operators\PlusArithmeticExpressionOperator.cs" />
+    <Compile Include="Predicates\Predicate.cs" />
+    <Compile Include="Helpers\PredicateExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Expressions\RowNumberOverOrderByExpression.cs" />
+    <Compile Include="Functions\ScalarFunctions\ConvertFunction.cs" />
+    <Compile Include="Functions\ScalarFunctions\DateAddFunction.cs" />
+    <Compile Include="Functions\ScalarFunctions\GetDateFunction.cs" />
+    <Compile Include="Expressions\ScalarSelectStatementExpression.cs" />
+    <Compile Include="ScriptBuilder.cs" />
+    <Compile Include="Case\SearchedCaseExpression.cs" />
+    <Compile Include="Clauses\Select\Select.cs" />
+    <Compile Include="Clauses\Select\SelectClause.cs" />
+    <Compile Include="Clauses\Select\SelectDistinctTop.cs" />
+    <Compile Include="Clauses\Select\SelectDistinct.cs" />
+    <Compile Include="Clauses\Select\SelectDistinctTopPercent.cs" />
+    <Compile Include="Helpers\ColumnList.cs" />
+    <Compile Include="SelectStatement.cs" />
+    <Compile Include="Clauses\Select\SelectTop.cs" />
+    <Compile Include="Clauses\Select\SelectTopPercent.cs" />
+    <Compile Include="Clauses\SetUpdate.cs" />
+    <Compile Include="Case\SimpleCase.cs" />
+    <Compile Include="Sql.cs" />
+    <Compile Include="SqlMapper.cs" />
+    <Compile Include="Helpers\Internal\SqlUdtInfo.cs" />
+    <Compile Include="Predicates\StartsWithPredicate.cs" />
+    <Compile Include="StatementBase.cs" />
+    <Compile Include="Helpers\Internal\StringHelper.cs" />
+    <Compile Include="TSql\SystemConstant.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="Functions\TableValuedFunction.cs" />
+    <Compile Include="Predicates\TruePredicate.cs" />
+    <Compile Include="Clauses\TruncateClause.cs" />
+    <Compile Include="TruncateTableStatement.cs" />
+    <Compile Include="Operators\UnaryArithmeticOperator.cs" />
+    <Compile Include="Clauses\Update\UpdateClause.cs" />
+    <Compile Include="UpdateStatement.cs" />
+    <Compile Include="Clauses\Update\UpdateTable.cs" />
+    <Compile Include="Clauses\Update\UpdateTopPercentTable.cs" />
+    <Compile Include="Clauses\Update\UpdateTopTable.cs" />
+    <Compile Include="Clauses\Update\ValuesClause.cs" />
+    <Compile Include="Clauses\Update\WhereClause.cs" />
+    <Compile Include="Clauses\Update\WhereDelete.cs" />
+    <Compile Include="Clauses\WhereUpdate.cs" />
+    <Compile Include="XQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SharpQL.snk" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

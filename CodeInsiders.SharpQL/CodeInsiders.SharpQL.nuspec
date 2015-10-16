@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>CODEInsiders</authors>
+    <owners>CODEInsiders</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Helps you generate complex dynamic SQL scripts directly in code.</description>
+    <releaseNotes>This lib is experimental and it is a work in progress. Do not use in production. Breaking changes WILL happen in later releases.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>CODEInsiders dynamic sql query helper sharpql</tags>
+  </metadata>
+</package>
