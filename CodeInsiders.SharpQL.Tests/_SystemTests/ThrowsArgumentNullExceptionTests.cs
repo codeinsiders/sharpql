@@ -16,6 +16,7 @@
 //  limitations under the License.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace CodeInsiders.SharpQL.Doc.SystemApi
 {
     using System;

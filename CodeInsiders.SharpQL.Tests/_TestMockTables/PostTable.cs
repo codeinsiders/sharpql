@@ -26,11 +26,13 @@ namespace CodeInsiders.SharpQL.Doc.TestMockTables
             this.UserId = this.RegisterColumn("UserId");
             this.Title = this.RegisterColumn("Title");
             this.Text = this.RegisterColumn("Text");
+            this.PostDate = this.RegisterColumn("PostDate");
         }
 
         public Column Id { get; private set; }
         public Column UserId { get; private set; }
         public Column Title { get; private set; }
         public Column Text { get; private set; }
+        public Column PostDate { get; private set; }
     }
 }

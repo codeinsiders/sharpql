@@ -16,6 +16,7 @@
 //  limitations under the License.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace CodeInsiders.SharpQL
 {
     using System;
@@ -40,6 +41,13 @@ namespace CodeInsiders.SharpQL
         public T AppendStatement<T>(T statement) where T : IStatement {
             this.statementList.Add(statement);
             return statement;
+        }
+
+        public IReadOnlyCollection<SqlParameter> Parameters
+        {
+            get {
+                return this.ScriptBuilder.Parameters;
+            }
         }
 
         protected void CreateInputParam(SqlParameter parameter) {

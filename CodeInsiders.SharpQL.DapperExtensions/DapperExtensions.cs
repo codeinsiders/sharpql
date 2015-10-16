@@ -39,7 +39,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             }
 
             var commandText = query.ToString();
-            var args = query.ScriptBuilder.Parameters.ToArray();
+            var args = query.Parameters;
 
             if (args.Any() == false) {
                 return connection.Query<T>(commandText);
@@ -58,7 +58,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             }
 
             var commandText = query.ToString();
-            var args = query.ScriptBuilder.Parameters.ToArray();
+            var args = query.Parameters;
 
             if (args.Any() == false) {
                 return connection.QueryAsync<T>(commandText);
@@ -123,7 +123,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             }
 
             var commandText = query.ToString();
-            var args = query.ScriptBuilder.Parameters;
+            var args = query.Parameters;
 
             if (args.Any() == false) {
                 connection.Execute(commandText);
@@ -142,7 +142,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             }
 
             var commandText = query.ToString();
-            var args = query.ScriptBuilder.Parameters;
+            var args = query.Parameters;
 
             if (args.Any() == false) {
                 connection.Execute(commandText);
@@ -211,7 +211,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             }
 
             var commandText = query.ToString();
-            var args = query.ScriptBuilder.Parameters;
+            var args = query.Parameters;
             if (args.Any() == false) {
                 return connection.ExecuteScalar<T>(commandText);
             }
@@ -229,7 +229,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             }
 
             var commandText = query.ToString();
-            var args = query.ScriptBuilder.Parameters;
+            var args = query.Parameters;
             if (args.Any() == false) {
                 return connection.ExecuteScalarAsync<T>(commandText);
             }

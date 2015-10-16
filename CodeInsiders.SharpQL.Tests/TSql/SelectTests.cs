@@ -16,6 +16,7 @@
 //  limitations under the License.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace CodeInsiders.SharpQL.Doc._TSql
 {
     using System;
@@ -119,25 +120,27 @@ WHERE
             var u = new UserTable();
             var p = new PostTable();
 
+            int userId = 1;
             q.Select(u.Id, Sql.Count(1))
                 .From(u)
                 .InnerJoin(p, u.Id.IsEqualTo(p.UserId))
+                .Where(u.Id.IsEqualTo(userId)
+                       & p.PostDate.IsGreaterThanOrEqualTo(DateTime.Now.AddDays(-7)))
                 .GroupBy(u.Id)
-                .Having(Sql.Count(1)
-                    .IsGreaterThan(100))
+                .Having(Sql.Count(1).IsGreaterThan(10))
                 .EndStatement();
 
             TSqlAssert.ScriptsAreEqual(q.ToString(), @"
-SELECT
-    [dbo].[User].[Id]
-  ,  COUNT(  @p0  ) 
- FROM [dbo].[User]
- INNER JOIN [dbo].[Post] ON [dbo].[User].[Id] = [dbo].[Post].[UserId]
-GROUP BY
-    [dbo].[User].[Id]
-HAVING
- COUNT(  @p0  )  >  @p1 
-
+SELECT   [dbo].[User].[Id],
+         COUNT(@p0)
+FROM     [dbo].[User]
+         INNER JOIN
+         [dbo].[Post]
+         ON [dbo].[User].[Id] = [dbo].[Post].[UserId]
+WHERE    ([dbo].[User].[Id] = @p0
+          AND [dbo].[Post].[PostDate] >= @p1)
+GROUP BY [dbo].[User].[Id]
+HAVING   COUNT(@p0) > @p2;
 ");
         }
 
