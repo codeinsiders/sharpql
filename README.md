@@ -1,5 +1,5 @@
 # SharpQL
-
+[logo]: https://codeinsiders.net/content/img/sharpql-logo.svg "SharpQL logo"
 SharpQL is an open source library written in C#.
 It's sole purpose is to help you generate dynamic SQL scripts faster and safer.
 When used in IDE it's like writing pure SQL with the help of intellisense.
