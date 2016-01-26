@@ -25,7 +25,7 @@ namespace CodeInsiders.SharpQL
 
     using CodeInsiders.SharpQL.Helpers.Internal;
 
-    public abstract class XBatch
+    public abstract class SharpBatch
     {
         private readonly List<IStatement> statementList = new List<IStatement>(5);
         private ScriptBuilder scriptBuilder;

@@ -30,7 +30,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
 
     public static class DapperExtensions
     {
-        public static IEnumerable<T> Query<T>(this IDbConnection connection, XQuery query, IDbTransaction tran = null) {
+        public static IEnumerable<T> Query<T>(this IDbConnection connection, SharpQuery query, IDbTransaction tran = null) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -49,7 +49,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return connection.Query<T>(commandDefinition);
         }
 
-        public static Task<IEnumerable<T>> QueryAsync<T>(this IDbConnection connection, XQuery query) {
+        public static Task<IEnumerable<T>> QueryAsync<T>(this IDbConnection connection, SharpQuery query) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -68,7 +68,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return connection.QueryAsync<T>(commandDefinition);
         }
 
-        public static IEnumerable<T> Query<T>(this IDbConnection connection, Func<XQuery> queryFactory) {
+        public static IEnumerable<T> Query<T>(this IDbConnection connection, Func<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -79,7 +79,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return Query<T>(connection, xQuery);
         }
 
-        public static Task<IEnumerable<T>> QueryAsync<T>(this IDbConnection connection, Func<XQuery> queryFactory) {
+        public static Task<IEnumerable<T>> QueryAsync<T>(this IDbConnection connection, Func<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -90,31 +90,31 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return QueryAsync<T>(connection, xQuery);
         }
 
-        public static IEnumerable<T> Query<T>(this IDbConnection connection, Action<XQuery> queryFactory) {
+        public static IEnumerable<T> Query<T>(this IDbConnection connection, Action<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
             if (queryFactory == null) {
                 throw new ArgumentNullException("queryFactory");
             }
-            var xQuery = new XQuery();
+            var xQuery = new SharpQuery();
             queryFactory(xQuery);
             return Query<T>(connection, xQuery);
         }
 
-        public static Task<IEnumerable<T>> QueryAsync<T>(this IDbConnection connection, Action<XQuery> queryFactory) {
+        public static Task<IEnumerable<T>> QueryAsync<T>(this IDbConnection connection, Action<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
             if (queryFactory == null) {
                 throw new ArgumentNullException("queryFactory");
             }
-            var xQuery = new XQuery();
+            var xQuery = new SharpQuery();
             queryFactory(xQuery);
             return QueryAsync<T>(connection, xQuery);
         }
 
-        public static void Execute(this IDbConnection connection, XQuery query) {
+        public static void Execute(this IDbConnection connection, SharpQuery query) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -133,7 +133,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             connection.Execute(commandDefinition);
         }
 
-        public static Task ExecuteAsync(this IDbConnection connection, XQuery query) {
+        public static Task ExecuteAsync(this IDbConnection connection, SharpQuery query) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -152,7 +152,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return connection.ExecuteAsync(commandDefinition);
         }
 
-        public static void Execute(this IDbConnection connection, Func<XQuery> queryFactory) {
+        public static void Execute(this IDbConnection connection, Func<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -164,7 +164,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             Execute(connection, xQuery);
         }
 
-        public static Task ExecuteAsync(this IDbConnection connection, Func<XQuery> queryFactory) {
+        public static Task ExecuteAsync(this IDbConnection connection, Func<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -176,7 +176,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return ExecuteAsync(connection, xQuery);
         }
 
-        public static void Execute(this IDbConnection connection, Action<XQuery> queryFactory) {
+        public static void Execute(this IDbConnection connection, Action<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -184,12 +184,12 @@ namespace CodeInsiders.SharpQL.DapperExtensions
                 throw new ArgumentNullException("queryFactory");
             }
 
-            var xQuery = new XQuery();
+            var xQuery = new SharpQuery();
             queryFactory(xQuery);
             Execute(connection, xQuery);
         }
 
-        public static Task ExecuteAsync(this IDbConnection connection, Action<XQuery> queryFactory) {
+        public static Task ExecuteAsync(this IDbConnection connection, Action<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -197,12 +197,12 @@ namespace CodeInsiders.SharpQL.DapperExtensions
                 throw new ArgumentNullException("queryFactory");
             }
 
-            var xQuery = new XQuery();
+            var xQuery = new SharpQuery();
             queryFactory(xQuery);
             return ExecuteAsync(connection, xQuery);
         }
 
-        public static T ExecuteScalar<T>(this IDbConnection connection, XQuery query) {
+        public static T ExecuteScalar<T>(this IDbConnection connection, SharpQuery query) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -220,7 +220,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return connection.ExecuteScalar<T>(commandDefinition);
         }
 
-        public static Task<T> ExecuteScalarAsync<T>(this IDbConnection connection, XQuery query) {
+        public static Task<T> ExecuteScalarAsync<T>(this IDbConnection connection, SharpQuery query) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -238,7 +238,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return connection.ExecuteScalarAsync<T>(commandDefinition);
         }
 
-        public static T ExecuteScalar<T>(this IDbConnection connection, Func<XQuery> queryFactory) {
+        public static T ExecuteScalar<T>(this IDbConnection connection, Func<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -250,7 +250,7 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return ExecuteScalar<T>(connection, xQuery);
         }
 
-        public static Task<T> ExecuteScalarAsync<T>(this IDbConnection connection, Func<XQuery> queryFactory) {
+        public static Task<T> ExecuteScalarAsync<T>(this IDbConnection connection, Func<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
@@ -262,14 +262,14 @@ namespace CodeInsiders.SharpQL.DapperExtensions
             return ExecuteScalarAsync<T>(connection, xQuery);
         }
 
-        public static Task<T> ExecuteScalarAsync<T>(this IDbConnection connection, Action<XQuery> queryFactory) {
+        public static Task<T> ExecuteScalarAsync<T>(this IDbConnection connection, Action<SharpQuery> queryFactory) {
             if (connection == null) {
                 throw new ArgumentNullException("connection");
             }
             if (queryFactory == null) {
                 throw new ArgumentNullException("queryFactory");
             }
-            var xQuery = new XQuery();
+            var xQuery = new SharpQuery();
             queryFactory(xQuery);
             return ExecuteScalarAsync<T>(connection, xQuery);
         }

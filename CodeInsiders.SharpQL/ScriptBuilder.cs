@@ -30,10 +30,10 @@ namespace CodeInsiders.SharpQL
 
     public class ScriptBuilder
     {
-        private readonly XBatch batch;
+        private readonly SharpBatch batch;
         private readonly StringBuilder sb = new StringBuilder(512);
 
-        internal ScriptBuilder(XBatch batch) {
+        internal ScriptBuilder(SharpBatch batch) {
             if (batch == null) {
                 throw new ArgumentNullException("batch");
             }

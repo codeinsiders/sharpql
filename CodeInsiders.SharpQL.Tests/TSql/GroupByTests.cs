@@ -27,7 +27,7 @@ namespace CodeInsiders.SharpQL.Doc._TSql
     {
         [Test]
         public void Test1() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var u = new UserTable();
             var p = new PostTable();
 

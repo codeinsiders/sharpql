@@ -29,8 +29,8 @@ namespace CodeInsiders.SharpQL.Doc.Usage
         public void InsertWithMultipleValues() {
             var u = new UserTable();
 
-            var q = new XQuery();
-            q.InsertInto(u, u.Id, u.Name, u.Email)
+            var q = new SharpQuery();
+            q.InsertInto(u, u.Id, u.FirstName, u.Email)
                 .Values(1, "a", "b")
                 .Values(2, "a", "b")
                 .Values(3, "a", "b")

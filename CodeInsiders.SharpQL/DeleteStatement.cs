@@ -20,7 +20,7 @@ namespace CodeInsiders.SharpQL
 {
     public class DeleteStatement : StatementBase
     {
-        public DeleteStatement(XBatch batch)
+        public DeleteStatement(SharpBatch batch)
             : base(batch) {}
     }
 }

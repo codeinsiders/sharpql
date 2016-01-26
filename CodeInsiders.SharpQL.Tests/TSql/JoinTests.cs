@@ -33,12 +33,12 @@ namespace CodeInsiders.SharpQL.Doc._TSql
             var u = new UserTable();
             var p = new PostTable();
 
-            var q = new XQuery();
+            var q = new SharpQuery();
 
             q.Select(p.AllColumns)
                 .From(p)
                 .InnerJoin(u, u.Id.IsEqualTo(p.UserId))
-                .Where(u.Name.IsEqualTo("Mike"))
+                .Where(u.FirstName.IsEqualTo("Mike"))
                 .EndStatement();
             var script = q.ToString();
 
@@ -59,12 +59,9 @@ INNER JOIN [dbo].[User] ON [dbo].[User].[Id] = [dbo].[Post].[UserId]WHERE
             var u = new UserTable();
             var p = new PostTable();
 
-            var q = new XQuery();
+            var q = new SharpQuery();
 
-            q.Select(u.Name, p.Title)
-                .From(u)
-                .RightOuterJoin(p, p.UserId.IsEqualTo(u.Id))
-                .EndStatement();
+            q.Select(u.FirstName, p.Title).From(u).RightOuterJoin(p, p.UserId.IsEqualTo(u.Id)).EndStatement();
 
             var script = q.ToString();
 
@@ -84,7 +81,7 @@ SELECT
             var p2 = new PostTable("p2");
             var tv = new CustomTableValuedFunction();
 
-            var q = new XQuery();
+            var q = new SharpQuery();
             q.Select(u.AllColumns)
                 .From(u)
                 .InnerJoin(p1, p1.UserId.IsEqualTo(u.Id))

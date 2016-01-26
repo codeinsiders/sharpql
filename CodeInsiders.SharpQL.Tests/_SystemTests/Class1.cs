@@ -47,7 +47,7 @@ namespace CodeInsiders.SharpQL.Doc.Usage
                            {
                                table.Id,
                                table.Email,
-                               table.Name
+                               table.FirstName
                            };
 
             CollectionAssert.AreEquivalent(expected, cols);

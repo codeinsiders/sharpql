@@ -16,15 +16,17 @@
 //  limitations under the License.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace CodeInsiders.SharpQL
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Common;
     using System.Data.SqlClient;
     using System.IO;
     using System.Reflection;
 
-    public class XQuery : XBatch
+    public class SharpQuery : SharpBatch
     {
         protected void WriteScript(string scriptName, object model = null) {
             var script = this.ReadResourceAsString(scriptName);
@@ -69,6 +71,19 @@ namespace CodeInsiders.SharpQL
             }
 
             return args;
+        }
+
+        public DbCommand CreateCommand(DbConnection connection, Action<DbCommand> factory = null) {
+            var script = this.ToString();
+            var cmd = connection.CreateCommand();
+            cmd.CommandText = script;
+            foreach (var sqlParameter in this.Parameters) {
+                cmd.Parameters.Add(sqlParameter);
+            }
+            if (factory != null) {
+                factory(cmd);
+            }
+            return cmd;
         }
     }
 }

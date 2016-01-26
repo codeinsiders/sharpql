@@ -23,7 +23,7 @@ namespace CodeInsiders.SharpQL
     public class SingleExprSelectStatement : SelectStatement
     {
         [ExcludeFromCodeCoverage]
-        internal SingleExprSelectStatement(XBatch batch)
+        internal SingleExprSelectStatement(SharpBatch batch)
             : base(batch) {}
     }
 }

@@ -20,7 +20,7 @@ namespace CodeInsiders.SharpQL
 {
     public class OrderByStatement : StatementBase
     {
-        public OrderByStatement(XBatch batch)
+        public OrderByStatement(SharpBatch batch)
             : base(batch) {}
     }
 }

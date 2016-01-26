@@ -29,7 +29,7 @@ namespace CodeInsiders.SharpQL.Doc._TSql
         [Test]
         public void SelectSingleColumnCreatesSingleExpSelectStatement() {
             var u = new UserTable();
-            var q = new XQuery();
+            var q = new SharpQuery();
             var stm = q.Select(u.Id).From(u).Statement;
 
             Assert.IsInstanceOf(typeof(SingleExprSelectStatement), stm);
@@ -38,7 +38,7 @@ namespace CodeInsiders.SharpQL.Doc._TSql
         [Test]
         public void SingleExprSelectStatementIsOfTypeSelectStatement() {
             var u = new UserTable();
-            var q = new XQuery();
+            var q = new SharpQuery();
             var stm = q.Select(u.Id).From(u).Statement;
 
             Assert.IsInstanceOf(typeof(SingleExprSelectStatement), stm);
@@ -47,7 +47,7 @@ namespace CodeInsiders.SharpQL.Doc._TSql
 
         [Test]
         public void SingleExprSingleColumnSelect() {
-            var q = new XQuery();
+            var q = new SharpQuery();
 
             var selectStm = q.SelectOne(2).Statement;
             var exp = (Expression)selectStm;

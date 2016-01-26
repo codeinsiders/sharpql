@@ -25,7 +25,7 @@ namespace CodeInsiders.SharpQL.Doc._TSql
     {
         [Test]
         public void Test1() {
-            var q = new XQuery();
+            var q = new SharpQuery();
 
             q.Select(1).EndStatement();
             var query = q.ToString();

@@ -20,9 +20,9 @@ namespace CodeInsiders.SharpQL
 {
     public interface IStatement
     {
-        XBatch Batch { get; }
+        SharpBatch Batch { get; }
         SqlFragment FirstFragment { get; set; }
 
-        XBatch End();
+        SharpBatch End();
     }
 }

@@ -25,7 +25,7 @@ namespace CodeInsiders.SharpQL.Doc._TSql
     {
         [Test]
         public void Minus() {
-            var q = new XQuery();
+            var q = new SharpQuery();
 
             var a = Expression.GetConstant(1);
             var b = Expression.GetConstant(2);
@@ -38,7 +38,7 @@ SELECT (@p0 - @p1)");
 
         [Test]
         public void Plus() {
-            var q = new XQuery();
+            var q = new SharpQuery();
 
             var a = Expression.GetConstant(1);
             var b = Expression.GetConstant(2);
@@ -52,7 +52,7 @@ SELECT (@p0 + @p1)
 
         [Test]
         public void Multiply() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var a = ConstantExpression.GetConstant(1.1);
             var b = ConstantExpression.GetConstant(2.2);
 
@@ -65,7 +65,7 @@ SELECT (@p0 * @p1)
 
         [Test]
         public void Divide() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var a = ConstantExpression.GetConstant(5);
             var b = ConstantExpression.GetConstant(2);
 
@@ -78,7 +78,7 @@ SELECT (@p0 / @p1);
 
         [Test]
         public void Mod() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var a = ConstantExpression.GetConstant(5);
             var b = ConstantExpression.GetConstant(2);
 

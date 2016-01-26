@@ -23,12 +23,13 @@ namespace CodeInsiders.SharpQL.Doc.TestMockTables
         public UserTable(string alias = null)
             : base("dbo", "User", alias) {
             this.Id = this.RegisterColumn("Id");
-            this.Name = this.RegisterColumn("Name");
             this.Email = this.RegisterColumn("Email");
+            this.FirstName = this.RegisterColumn("LastName");
         }
 
         public Column Id { get; private set; }
         public Column Email { get; private set; }
-        public Column Name { get; private set; }
+        public Column FirstName { get; private set; }
+        public Column LastName { get; private set; }
     }
 }

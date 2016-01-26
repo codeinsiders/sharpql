@@ -97,7 +97,7 @@
     <Compile Include="SharpQLException.cs" />
     <Compile Include="Expressions\SingleExpSingleRowSelectStatementExpression.cs" />
     <Compile Include="ScriptVisitors\ScriptVisitor.cs" />
-    <Compile Include="XBatch.cs" />
+    <Compile Include="SharpBatch.cs" />
     <Compile Include="Predicates\BetweenPredicate.cs" />
     <Compile Include="Operators\BinaryArithemeticOperator.cs" />
     <Compile Include="Functions\CastFunction.cs" />
@@ -220,7 +220,7 @@
     <Compile Include="Clauses\Update\WhereClause.cs" />
     <Compile Include="Clauses\Update\WhereDelete.cs" />
     <Compile Include="Clauses\WhereUpdate.cs" />
-    <Compile Include="XQuery.cs" />
+    <Compile Include="SharpQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SharpQL.snk" />

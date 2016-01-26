@@ -20,7 +20,7 @@ namespace CodeInsiders.SharpQL
 {
     public class UpdateStatement : StatementBase
     {
-        public UpdateStatement(XBatch batch)
+        public UpdateStatement(SharpBatch batch)
             : base(batch) {}
     }
 }

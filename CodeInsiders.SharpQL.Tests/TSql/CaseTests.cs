@@ -25,7 +25,7 @@ namespace CodeInsiders.SharpQL.Doc._TSql
     {
         [Test]
         public void SimpleCase() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             SimpleCase c = new SimpleCase(1);
 
             c.When(1, 2).When(3, 4).Else(5);
@@ -45,7 +45,7 @@ SELECT
 
         [Test]
         public void SimpleCase2() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             q.Select(q.Case(1).When(1, 2).When(3, 4).When(5, 6).Else(7)).EndStatement();
             TSqlAssert.ScriptsAreEqual(q.ToString(), @"
 SELECT
@@ -60,7 +60,7 @@ SELECT
 
         [Test]
         public void SearchedCase() {
-            var q = new XQuery();
+            var q = new SharpQuery();
 
             var sc = new SearchedCase();
             sc.CaseWhen(((Expression)1).IsEqualTo(1), 1)
@@ -83,7 +83,7 @@ SELECT
 
         [Test]
         public void SearchedCase2() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var v = ConstantExpression.GetConstant(1);
             var p = ConstantExpression.GetConstant(2);
             q.Select(q

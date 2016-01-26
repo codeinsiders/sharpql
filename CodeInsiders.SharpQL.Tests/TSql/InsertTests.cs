@@ -28,9 +28,9 @@ namespace CodeInsiders.SharpQL.Doc._TSql
         [Test]
         public void InsertIntoTable() {
             var u = new UserTable();
-            var q = new XQuery();
+            var q = new SharpQuery();
 
-            q.InsertInto(u, u.Email, u.Name).Values("test@test.com", "username").EndStatement();
+            q.InsertInto(u, u.Email, u.FirstName).Values("test@test.com", "username").EndStatement();
 
             TSqlAssert.ScriptsAreEqual(q.ToString(), @"
 INSERT INTO [dbo].[User](    [dbo].[User].[Email]

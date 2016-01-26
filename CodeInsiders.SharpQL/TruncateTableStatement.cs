@@ -20,7 +20,7 @@ namespace CodeInsiders.SharpQL
 {
     public class TruncateTableStatement : StatementBase
     {
-        public TruncateTableStatement(XBatch batch)
+        public TruncateTableStatement(SharpBatch batch)
             : base(batch) {}
     }
 }

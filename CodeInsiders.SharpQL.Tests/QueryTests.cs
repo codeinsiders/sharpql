@@ -27,20 +27,20 @@ namespace CodeInsiders.SharpQL.Doc
     {
         [Test]
         public void EmptyQueryReturnsEmptyScript() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             TSqlAssert.ScriptsAreEqual(string.Empty, q.ToString());
         }
 
         [Test]
         public void NotEndedStatementsShouldNotBeAddedToScript1() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             q.Select(1);
             TSqlAssert.ScriptsAreEqual(string.Empty, q.ToString());
         }
 
         [Test]
         public void NotEndedStatementsShouldNotBeAddedToScript2() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             q.Select(1);
             q.Select(2).EndStatement();
 
@@ -50,7 +50,7 @@ namespace CodeInsiders.SharpQL.Doc
 
         [Test]
         public void EndedStatementsShouldBeAddedToScript() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             q.Select(1).EndStatement();
             var script = q.ToString();
             TSqlAssert.ScriptsAreEqual(script, "SELECT @p0");
@@ -58,11 +58,11 @@ namespace CodeInsiders.SharpQL.Doc
 
         [Test]
         public void QueryAlwaysGeneratesTheSameScript() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var u = new UserTable();
             var p = new PostTable();
 
-            q.Select(u.Name, u.Email, p.Title).From(u).LeftOuterJoin(p, p.UserId.IsEqualTo(u.Id)).EndStatement();
+            q.Select(u.FirstName, u.Email, p.Title).From(u).LeftOuterJoin(p, p.UserId.IsEqualTo(u.Id)).EndStatement();
 
             var script1 = q.ToString();
             var script2 = q.ToString();

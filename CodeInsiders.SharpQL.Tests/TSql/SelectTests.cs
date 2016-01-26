@@ -1,4 +1,8 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+﻿#region ns code
+
+#endregion
+
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="SelectTests.cs" company="CODE Insiders LTD">
 // 
 // Copyright 2013-2015 CODE Insiders LTD
@@ -38,9 +42,9 @@ namespace CodeInsiders.SharpQL.Doc._TSql
              * 
              */
             var u = new UserTable();
-            var q = new XQuery();
+            var q = new SharpQuery();
 
-            q.Select(u.Name).From(u).EndStatement();
+            q.Select(u.FirstName).From(u).EndStatement();
 
             var script = q.ToString();
 
@@ -52,7 +56,7 @@ FROM [dbo].[User]
 
         [Test]
         public void SelectAllColumnsFromTable() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var u = new UserTable();
 
             q.Select(u.AllColumns).From(u).EndStatement();
@@ -69,9 +73,9 @@ SELECT
         [Test]
         public void SelectSingleColumnFromAliasedTable() {
             var u = new UserTable("u");
-            var q = new XQuery();
+            var q = new SharpQuery();
 
-            q.Select(u.Name).From(u).EndStatement();
+            q.Select(u.FirstName).From(u).EndStatement();
 
             var script = q.ToString();
 
@@ -84,9 +88,9 @@ FROM [dbo].[User] AS [u]
         [Test]
         public void SelectAliasedColumnFromTable() {
             var u = new UserTable();
-            var q = new XQuery();
+            var q = new SharpQuery();
 
-            q.Select(u.Name.As("Username")).From(u).EndStatement();
+            q.Select(u.FirstName.As("Username")).From(u).EndStatement();
 
             var script = q.ToString();
             TSqlAssert.ScriptsAreEqual(script, @"
@@ -98,9 +102,9 @@ FROM [dbo].[User]
         [Test]
         public void SelectWithWhere() {
             var u = new UserTable();
-            var q = new XQuery();
+            var q = new SharpQuery();
 
-            q.Select(u.Name).From(u).Where(u.Id.IsEqualTo(1)).EndStatement();
+            q.Select(u.FirstName).From(u).Where(u.Id.IsEqualTo(1)).EndStatement();
 
             var script = q.ToString();
             Console.WriteLine(script);
@@ -116,7 +120,7 @@ WHERE
 
         [Test]
         public void Having() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var u = new UserTable();
             var p = new PostTable();
 
@@ -124,8 +128,7 @@ WHERE
             q.Select(u.Id, Sql.Count(1))
                 .From(u)
                 .InnerJoin(p, u.Id.IsEqualTo(p.UserId))
-                .Where(u.Id.IsEqualTo(userId)
-                       & p.PostDate.IsGreaterThanOrEqualTo(DateTime.Now.AddDays(-7)))
+                .Where(u.Id.IsEqualTo(userId) & p.PostDate.IsGreaterThanOrEqualTo(DateTime.Now.AddDays(-7)))
                 .GroupBy(u.Id)
                 .Having(Sql.Count(1).IsGreaterThan(10))
                 .EndStatement();
@@ -146,12 +149,11 @@ HAVING   COUNT(@p0) > @p2;
 
         [Test]
         public void OrderBy() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var u = new UserTable();
 
             q.Select(u.AllColumns).From(u).EndStatement();
-            q.OrderByAsc(u.Id, u.Name)
-                .OrderByDesc(u.Email).EndStatement();
+            q.OrderByAsc(u.Id, u.FirstName).OrderByDesc(u.Email).EndStatement();
 
             TSqlAssert.ScriptsAreEqual(q.ToString(), @"
 SELECT
@@ -168,14 +170,11 @@ ORDER BY
 
         [Test]
         public void OrderBy2() {
-            var q = new XQuery();
+            var q = new SharpQuery();
             var u = new UserTable();
 
             q.Select(u.AllColumns).From(u).EndStatement();
-            q.OrderByAsc(u.Id)
-                .OrderByDesc(u.Name)
-                .OrderByAsc(u.Email)
-                .EndStatement();
+            q.OrderByAsc(u.Id).OrderByDesc(u.FirstName).OrderByAsc(u.Email).EndStatement();
 
             TSqlAssert.ScriptsAreEqual(q.ToString(), @"
 SELECT

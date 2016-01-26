@@ -22,18 +22,18 @@ namespace CodeInsiders.SharpQL
 
     public abstract class StatementBase : IStatement
     {
-        protected StatementBase(XBatch batch) {
+        protected StatementBase(SharpBatch batch) {
             if (batch == null) {
                 throw new ArgumentNullException("batch");
             }
             this.Batch = batch;
         }
 
-        public XBatch Batch { get; private set; }
+        public SharpBatch Batch { get; private set; }
 
         public SqlFragment FirstFragment { get; set; }
 
-        public XBatch End() {
+        public SharpBatch End() {
             this.Batch.AppendStatement(this);
             return this.Batch;
         }

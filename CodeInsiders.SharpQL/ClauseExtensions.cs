@@ -22,7 +22,7 @@ namespace CodeInsiders.SharpQL
 
     public static class ClauseExtensions
     {
-        public static XBatch EndStatement<T>(this Clause<T> clause) where T : IStatement {
+        public static SharpBatch EndStatement<T>(this Clause<T> clause) where T : IStatement {
             if (clause == null) {
                 throw new ArgumentNullException("clause");
             }

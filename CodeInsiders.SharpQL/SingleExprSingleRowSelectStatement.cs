@@ -26,7 +26,7 @@ namespace CodeInsiders.SharpQL
     public class SingleExprSingleRowSelectStatement : SelectStatement
     {
         [ExcludeFromCodeCoverage]
-        internal SingleExprSingleRowSelectStatement(XBatch batch)
+        internal SingleExprSingleRowSelectStatement(SharpBatch batch)
             : base(batch) {}
 
         public static implicit operator Expression(SingleExprSingleRowSelectStatement selectStm) {
